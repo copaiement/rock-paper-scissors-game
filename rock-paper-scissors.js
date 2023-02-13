@@ -2,6 +2,20 @@
 
 // simple rock paper scissors game built for TOP: Fundamentals
 
+// Show or hide the rules
+function showRules() {
+    const rules = document.getElementById("rules");
+    let buttonText = document.getElementById("btn-rules");
+    if (rules.style.display === "none") {
+        rules.style.display = "block";
+        buttonText.textContent = 'Hide Rules';
+    } else {
+        rules.style.display = "none";
+        buttonText.textContent = 'Show Rules';
+    }
+
+}
+
 // Get the player's choice
 function getPlayerChoice() {
     // prompt user for a new choice
@@ -143,6 +157,6 @@ function game() {
     
 }
 
-game();
+//game();
 
 

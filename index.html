@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zombie, Man, Gun</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="rock-paper-scissors.js" defer></script> -->
+    <script src="rock-paper-scissors.js" defer></script>
 </head>
 <body>
     <div class="main-container">
@@ -14,26 +14,28 @@
             <h2>Zombie, Man, Gun!</h2>
             <p>A variation on the classic game Rock, Paper, Scissors. 
                 This version uses Zombie, Man, and Gun but works the same way.</p>
-            <button class="btn-rules">View Rules</button>
-            <p class="rules">Rules: <br>
+            <button id="btn-rules" onclick="showRules()">View Rules</button>
+            <p id="rules" style="display: none;">Rules: <br>
                 Zombie kills Man <br>
                 Gun kills Zombie <br>
                 Man masters Gun. <br>
+                Computer will choose a random fighter. <br>
+                First to win 5 battles is the victor.
             </p>
             <p>Have fun!</p>
         </div>
-
+        <div class="choose-fighter">Choose Your Fighter:</div>
         <div class="game-pane">
             <div class="game-tile" id="tile-zombie">
-                <div class="thumbnail" id="thumb-zombie"></div>
+                <div class="thumbnail"></div>
                 <div>ZOMBIE</div>
             </div>
             <div class="game-tile" id="tile-man">
-                <div class="thumbnail" id="thumb-man"></div>
+                <div class="thumbnail"></div>
                 <div>MAN</div>
             </div>
             <div class="game-tile" id="tile-gun">
-                <div class="thumbnail" id="thumb-gun"></div>
+                <div class="thumbnail"></div>
                 <div>GUN</div>
             </div>
         </div>
