@@ -4,11 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
-    <script src="rock-paper-scissors.js" defer></script>
+    <title>Zombie, Man, Gun</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="rock-paper-scissors.js" defer></script> -->
 </head>
 <body>
-    <p>This code is for a simple Rock, Paper, Scissors JS game.</p>
-    <p>For this version, all of the game results are logged in the console.</p>
+    <div class="main-container">
+        <div class="info-pane">
+            <h2>Zombie, Man, Gun!</h2>
+            <p>A variation on the classic game Rock, Paper, Scissors. 
+                This version uses Zombie, Man, and Gun but works the same way.</p>
+            <button class="btn-rules">View Rules</button>
+            <p class="rules">Rules: <br>
+                Zombie kills Man <br>
+                Gun kills Zombie <br>
+                Man masters Gun. <br>
+            </p>
+            <p>Have fun!</p>
+        </div>
+
+        <div class="game-pane">
+            <div class="game-tile" id="tile-zombie">
+                <div class="thumbnail" id="thumb-zombie"></div>
+                <div>ZOMBIE</div>
+            </div>
+            <div class="game-tile" id="tile-man">
+                <div class="thumbnail" id="thumb-man"></div>
+                <div>MAN</div>
+            </div>
+            <div class="game-tile" id="tile-gun">
+                <div class="thumbnail" id="thumb-gun"></div>
+                <div>GUN</div>
+            </div>
+        </div>
+
+        <div class="output-pane">
+           
+
+        </div>
+
+        <div class="footer">
+            <p>Design and artwork by C Paiement. Created as part of The Odin Project, 2023</p>
+        </div>
+    </div>
 </body>
 </html>
