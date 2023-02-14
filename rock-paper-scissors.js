@@ -3,7 +3,7 @@
 // simple rock paper scissors game built for TOP: Fundamentals
 
 // initialize global variables
-let playerScore = 4;
+let playerScore = 0;
 let computerScore = 0;
 let playerSelection;
 let computerSelection;
