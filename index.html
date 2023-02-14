@@ -24,7 +24,7 @@
             </p>
             <p>Have fun!</p>
         </div>
-        <div class="output" id="round">Round 1</div>
+        <div class="output" id="round">Round: 1</div>
         <div class="output">Choose Your Fighter:</div>
         <div class="game-pane">
             <div class="game-tile" id="tile-zombie">
@@ -40,17 +40,26 @@
                 <div class="tile-type">GUN</div>
             </div>
         </div>
-
+                
         <div class="output-pane">
-            <div class="output" id="msg"></div>
+            <div class="output" id="msg"></div>            
             <div class="output" id="player-total">Player Score: 0</div>
             <div class="output" id="computer-total">Computer Score: 0</div>
-
         </div>
 
         <div class="footer">
             <p>Design and artwork by C Paiement. Created as part of The Odin Project, 2023.</p>
         </div>
     </div>
+
+    <div class="game-over" style="display: none;">
+        <div class="game-over" id="game-over-text">GAME OVER</div>
+        <div class="game-over" id="go-msg"></div>
+        <div class="game-over" id="go-player-total">Player Score: 0</div>
+        <div class="game-over" id="go-computer-total">Computer Score: 0</div>
+        <button class="game-over" id="go-btn" onclick="reset()">Play Again!</button>
+    </div>
+
+
 </body>
 </html>

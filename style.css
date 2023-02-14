@@ -8,7 +8,6 @@ body {
     background-color: black;
     color: white;
     text-align: center;
-    border: 1px solid yellow;
     margin: 0px;
     font-size: 14px;
 }
@@ -26,11 +25,9 @@ body {
 
 .info-pane {
     width: 50%;
-    border: 1px solid red;
-
 }
 
-#btn-rules {
+button {
     font-family: 'Press Start 2P', cursive;
     margin: 0;
     padding: 8px 16px;
@@ -41,7 +38,7 @@ body {
     box-shadow: 0px 0px 16px yellow;
 }
 
-#btn-rules:hover {
+button:hover {
     scale: 1.1;
     background-color: white;
     color: black;
@@ -61,7 +58,6 @@ body {
 }
 
 .game-pane {
-    border: 1px solid purple;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -129,9 +125,37 @@ body {
     padding: 8px;
 }
 
+#game-over {
+    font-size: 36px;
+    color: red;
+}
+
 .footer {
     background-color: gray;
     font-size: 10px;
     width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.game-over {
+    text-align: center;
+    font-size: 18px;
+    background-color: orange;
+    color: white;
+    padding: 16px;
+    margin: 48px;
+}
+
+#game-over-text {
+    font-size: 36px;
+    color: black;
+
+}
+
+#go-btn {
+    margin: 48px auto;
+    padding: 16px;
+    background-color: blueviolet;
     
 }
