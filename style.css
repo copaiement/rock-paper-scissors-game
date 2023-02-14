@@ -10,6 +10,7 @@ body {
     text-align: center;
     border: 1px solid yellow;
     margin: 0px;
+    font-size: 14px;
 }
 
 .main-container {
@@ -19,14 +20,11 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    line-height: 1.5;
     
 }
 
 .info-pane {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     width: 50%;
     border: 1px solid red;
 
@@ -57,9 +55,9 @@ body {
     line-height: 1.5;
 }
 
-.choose-fighter {
-    padding: 16px;
-    font-size: 24px;
+.output {
+    padding: 8px;
+    font-size: 20px;
 }
 
 .game-pane {
@@ -67,7 +65,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 60%;
+    width: 65%;
     padding: 16px;
 
 }
@@ -127,7 +125,8 @@ body {
 }
 
 .output-pane {
-
+    font-size: 18px;
+    padding: 8px;
 }
 
 .footer {

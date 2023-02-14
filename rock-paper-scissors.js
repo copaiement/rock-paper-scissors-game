@@ -2,9 +2,59 @@
 
 // simple rock paper scissors game built for TOP: Fundamentals
 
+// initialize global variables
+let playerScore = 0;
+let computerScore = 0;
+let playerSelection;
+let computerSelection;
+let roundNumber = 0;
+let roundResults;
+
+// initialize inputs and outputs
+const gameTiles = document.querySelectorAll('.game-tile');
+const round = document.getElementById("round");
+const rules = document.getElementById("rules");
+const msg = document.getElementById("msg");
+const playerTotalMsg = document.getElementById("player-total");
+const computerTotalMsg = document.getElementById("computer-total");
+
+// Get button press to start a round
+gameTiles.forEach(gameTile => {
+    gameTile.addEventListener('click', () => {
+        // pull click information
+        let info = gameTile.querySelector(".tile-type");
+        
+        // get computer and player choices
+        computerSelection = getComputerChoice();
+        playerSelection = info.innerText;
+
+        // run one round
+        roundResults = playRound(computerSelection, playerSelection);
+
+        // update results
+        if (playerScore == 5 || computerScore == 5) {
+            gameOver(playerScore, computerScore);
+        } else {
+            playerScore += roundResults.playerScore;
+            computerScore += roundResults.computerScore;
+            roundNumber += 1;
+        }
+        // print out results
+        round.textContent = `Round: ${roundNumber}`;
+        msg.textContent = roundResults.msg;
+        playerTotalMsg.textContent = `Player Score: ${playerScore}`;
+        computerTotalMsg.textContent = `Computer Score: ${computerScore}`;
+
+    });
+});
+
+// Game Over Function
+function gameOver(){
+    
+}
+
 // Show or hide the rules
 function showRules() {
-    const rules = document.getElementById("rules");
     let buttonText = document.getElementById("btn-rules");
     if (rules.style.display === "none") {
         rules.style.display = "block";
@@ -16,46 +66,19 @@ function showRules() {
 
 }
 
-// Get the player's choice
-function getPlayerChoice() {
-    // prompt user for a new choice
-    let playerSelection = prompt("Rock, Paper, or Scissors?");
-    
-    let exit = 0;
-
-    while (exit != 1) {
-        // clean playerSelection
-        playerSelection = playerSelection.toLowerCase();
-        // Make sure first letter is capitalized
-        playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
-        
-        if (playerSelection == 'Rock' || playerSelection == 'Paper' || playerSelection == 'Scissors') {
-            exit = 1;
-            return playerSelection;
-        } else {
-            alert('Please enter a valid play.');
-            playerSelection = prompt("Rock, Paper, or Scissors?");
-        } 
-
-    }  
-}
-
 // Get the computer's choice
 function getComputerChoice() {
     // create random number from 1 to 3
-    let rand = Math.floor(Math.random() * 3) + 1;
+    let rand = Math.floor(Math.random() * 3);
 
     // give choice based on random number
     switch (rand) {
+        case (0):
+            return "ZOMBIE";
         case (1):
-            return "Rock";
-            break;
+            return "MAN";
         case (2):
-            return "Paper";
-            break;
-        case (3):
-            return "Scissors";
-            break;
+            return "GUN";
     }
 }
 
@@ -65,98 +88,54 @@ function playRound(computerSelection, playerSelection) {
     let msg;
     let playerScore;
     let computerScore;
-    
+
     // check for tie game first
     if (computerSelection == playerSelection) {
         msg = `Tie game! You both selected ${computerSelection}!`;
         playerScore = 0;
         computerScore = 0;
         return {msg, playerScore, computerScore};
-    } else if (computerSelection == 'Rock') {
+    } else if (computerSelection == 'ZOMBIE') {
         switch (playerSelection) {
-            case 'Paper':
+            case 'GUN':
                 msg = `You win! ${playerSelection} beats ${computerSelection}.`;
                 playerScore = 1;
                 computerScore = 0;
                 return {msg, playerScore, computerScore};
-                break;
-            case 'Scissors':
+            case 'MAN':
                 msg = `You lose! ${computerSelection} beats ${playerSelection}.`;
                 playerScore = 0;
                 computerScore = 1;
                 return {msg, playerScore, computerScore};                
-                break;
         }
-    } else if (computerSelection == 'Paper') {
+    } else if (computerSelection == 'MAN') {
         switch (playerSelection) {
-            case 'Scissors':
+            case 'ZOMBIE':
                 msg = `You win! ${playerSelection} beats ${computerSelection}.`;
                 playerScore = 1;
                 computerScore = 0;
                 return {msg, playerScore, computerScore};
-                break;
-            case 'Rock':
+            case 'GUN':
                 msg = `You lose! ${computerSelection} beats ${playerSelection}.`;
                 playerScore = 0;
                 computerScore = 1;
                 return {msg, playerScore, computerScore};
-                break;
         }
 
-    } else if (computerSelection == 'Scissors') {
+    } else if (computerSelection == 'GUN') {
         switch (playerSelection) {
-            case 'Rock':
+            case 'MAN':
                 msg = `You win! ${playerSelection} beats ${computerSelection}.`;
                 playerScore = 1;
                 computerScore = 0;
                 return {msg, playerScore, computerScore};
-                break;
-            case 'Paper':
+            case 'ZOMBIE':
                 msg = `You lose! ${computerSelection} beats ${playerSelection}.`;
                 playerScore = 0;
                 computerScore = 1;
                 return {msg, playerScore, computerScore};
-                break;
         }
-    } 
-}
-
-// Play a full game of RPS (5 Rounds)
-function game() {
-    //initialize vars
-    let playerScore = 0;
-    let computerScore = 0;
-    //loop through 5 games
-    for (let i = 1; i <= 5; i ++) {
-        
-        //get new player selection
-        let playerSelection = getPlayerChoice();
-        //get new computer selection
-        let computerSelection = getComputerChoice();
-        //find the results of the game
-        let gameResult = playRound(computerSelection, playerSelection);
-        //track scores of games
-        playerScore += gameResult.playerScore;
-        computerScore += gameResult.computerScore;
-        //display results of each game
-        console.log(`Game # ${i}:`);
-        console.log('Player selection: ' + playerSelection);
-        console.log('Computer selection: ' + computerSelection);
-        console.log(gameResult.msg);
     }
-
-    if (playerScore > computerScore) {
-        console.log('Player wins!');
-    } else {
-        console.log('Computer wins!')
-    }
-
-    console.log('Final score:');
-    console.log(`Player Score: ${playerScore}`);
-    console.log(`Computer Score: ${computerScore}`);
     
 }
-
-//game();
-
 
